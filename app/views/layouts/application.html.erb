@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<html>
+<html  class="h-100" lang="ru">
   <head>
-    <title>Bbq</title>
+    <title>BBQ</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -10,7 +10,44 @@
     <%= javascript_pack_tag 'application' %>
   </head>
 
-  <body>
-    <%= yield %>
+  <body class="d-flex flex-column h-100">
+  <main class="flex-shrink-0" role="main">
+  <div class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <%= link_to "BBQ!", root_path, class: 'navbar-brand' %>
+      <div class="collapse navbar-collapse">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-link active"><%= link_to "Link1", "/path1"  %></li>
+          <li class="nav-link active"><%= link_to "Link2", "/path2"  %></li>
+          <li class="nav-link active"><%= link_to "Link3", "/path3"  %></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-9">
+        <%= bootstrap_flash %>
+        <%= yield %>
+      </div>
+      <div class="col-lg-3 bg-light border-right">
+        <div class="sidebar-heading">
+          <h3>Sidebar</h3>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item list-group-item-action bg-light"><%= link_to "Link1", "/path1"  %></li>
+            <li class="list-group-item list-group-item-action bg-light"><%= link_to "Link2", "/path2"  %></li>
+            <li class="list-group-item list-group-item-action bg-light"><%= link_to "Link3", "/path3"  %></li>
+          </ul>
+        </div><!--/.well -->
+      </div><!--/span-->
+    </div><!--/row-->
+  </div><!-- /container -->
+  </main>
+    <footer class="footer mt-auto py-3">
+      <div class="container">
+        <span class="text-muted">&copy; Company 2021</span>
+      </div>
+    </footer>
   </body>
 </html>
