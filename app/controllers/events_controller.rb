@@ -1,5 +1,9 @@
 class EventsController < ApplicationController
-  before_action :set_event, only: %i[ show edit update destroy ]
+  before_action :authenticate_user!, except: %i[ show index ]
+  # Задаем объект @event для экшена show
+  before_action :set_event, only: [:show]
+  # Задаем объект @event от текущего юзера для других действий
+  before_action :set_current_user_event, only: %i[ edit update destroy ]
 
   # GET /events
   def index
@@ -12,7 +16,7 @@ class EventsController < ApplicationController
 
   # GET /events/new
   def new
-    @event = Event.new
+    @event = current_user.events.build
   end
 
   # GET /events/1/edit
@@ -21,7 +25,7 @@ class EventsController < ApplicationController
 
   # POST /events
   def create
-    @event = Event.new(event_params)
+    @event = current_user.events.build(event_params)
 
     if @event.save
       redirect_to @event, notice: "Событие создано."
@@ -47,7 +51,10 @@ class EventsController < ApplicationController
 
   private
 
-  # Use callbacks to share common setup or constraints between actions.
+  def set_current_user_event
+    @event = current_user.events.find(params[:id])
+  end
+
   def set_event
     @event = Event.find(params[:id])
   end

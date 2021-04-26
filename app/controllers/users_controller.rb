@@ -1,8 +1,11 @@
 class UsersController < ApplicationController
+  # Встроенный в девайз фильтр — посылает незалогиненного пользователя
+  before_action :authenticate_user!, except: [:show]
   before_action :set_user, only: %i[ show edit update ]
 
   # GET /users/1
   def show
+    @user = User.find(params[:id])
   end
 
   # GET /users/1/edit
@@ -14,7 +17,7 @@ class UsersController < ApplicationController
     if @user.update(user_params)
       redirect_to @user, notice: "Профиль обновлен."
     else
-      render :edit, status: :unprocessable_entity
+      render :edit
     end
   end
 end
@@ -23,7 +26,7 @@ private
 
 # Use callbacks to share common setup or constraints between actions.
 def set_user
-  @user = User.find(params[:id])
+  @user = current_user
 end
 
 # Only allow a list of trusted parameters through.
