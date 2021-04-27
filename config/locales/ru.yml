@@ -33,6 +33,8 @@ ru:
     name: 'Мир событий'
     company: 'Рога и копыта'
 
+  # Перевод и склонение ошибок
+  you_allowed: 'Вы допустили'
   number_of_errors:
     zero: '%{count} ошибок'
     one: '%{count} ошибка'
@@ -40,6 +42,7 @@ ru:
     many: '%{count} ошибок'
     other: '%{count} ошибки'
 
+  # Формат даты и времени
   time:
     am: утра
     formats:
@@ -103,26 +106,29 @@ ru:
       - :year
 
   # Перевод ссылок и кнопок
-  Sign up: 'Регистрация'
-  Sign in: 'Войти'
-  Sign out: 'Выйти'
-  Log in: 'Мой аккаунт'
-  Profile: 'Мой профиль'
-  Remember me: 'Запомнить меня'
-  Forgot your password?: 'Забыли пароль?'
-  Didn't receive confirmation instructions?: 'Не получили инструкции по подтверждению?'
-  Didn't receive unlock instructions?: 'Не получили инструкции по разблокировке?'
-  Save: 'Сохранить'
-  Update: 'Обновить'
-  Back: 'Назад'
-  Create event: 'Создать событие'
-  Edit: 'Изменить'
-  Edit event: 'Изменить событие'
-  Edit profile: 'Редактировать профиль'
-  Change password: 'Сменить пароль'
-  Events list: 'Список событий'
-  Organized: 'Организовал'
-  Current password: 'Текущий пароль'
-  Cancel my account: 'Удалить аккаунт'
-  Are you sure?: 'Вы уверены?'
-  (leave blank if you don't want to change it): '(оставьте поле пустым, если не хотите его менять)'
+  sign_up: 'Регистрация'
+  sign_in: 'Войти'
+  sign_out: 'Выйти'
+  log_in: 'Вход'
+  profile: 'Мой профиль'
+  edit_profile: 'Редактировать профиль'
+  remember_me: 'Запомнить меня'
+  current_password: 'Текущий пароль'
+  forgot_password: 'Забыли пароль?'
+  change_password: 'Сменить пароль'
+  new_password: 'Новый пароль'
+  confirm_new_password: 'Подтвердите новый пароль'
+  save: 'Сохранить'
+  update: 'Обновить'
+  edit: 'Изменить'
+  delete: 'Удалить'
+  send: 'Отправить'
+  back: 'Назад'
+  create_event: 'Создать событие'
+  edit_event: 'Изменить событие'
+  events_list: 'Список событий'
+  organized: 'Организовал'
+  cancel_account: 'Удалить аккаунт'
+  are_you_sure: 'Вы уверены?'
+  leave_blank: '(оставьте поле пустым, если не хотите его менять)'
+  no_events: 'Пользователь пока не организовал ни одного события'

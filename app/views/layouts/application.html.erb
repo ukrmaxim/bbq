@@ -18,11 +18,11 @@
       <div class="collapse navbar-collapse">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <% if user_signed_in? %>
-            <li class="nav-link active"><%= link_to t('Profile'), current_user %></li>
-            <li class="nav-link active"><%= link_to t('Sign out'), destroy_user_session_path, :method => :delete %></li>
+            <li class="nav-link active"><%= link_to t('profile'), current_user %></li>
+            <li class="nav-link active"><%= link_to t('sign_out'), destroy_user_session_path, :method => :delete %></li>
           <% else %>
-            <li class="nav-link active"><%= link_to t('Sign in'), new_user_session_path %></li>
-            <li class="nav-link active"><%= link_to t('Sign up'), new_user_registration_path %></li>
+            <li class="nav-link active"><%= link_to t('sign_in'), new_user_session_path %></li>
+            <li class="nav-link active"><%= link_to t('sign_up'), new_user_registration_path %></li>
           <% end %>
          </ul>
       </div>
