@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
-  # Настройка для работы девайза при правке профиля юзера
+  # Настройка для работы девайза при правке профиля юзера и при регистрации
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   # Хелпер метод, доступный во вьюхах
@@ -12,10 +12,8 @@ class ApplicationController < ActionController::Base
   # Настройка для девайза — разрешаем обновлять профиль, но обрезаем
   # параметры, связанные со сменой пароля.
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(
-      :account_update,
-      keys: [:password, :password_confirmation, :current_password]
-    )
+    devise_parameter_sanitizer.permit(:account_update, keys: [:password, :password_confirmation, :current_password])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :email])
   end
 
   # Вспомогательный метод, возвращает true, если текущий залогиненный юзер

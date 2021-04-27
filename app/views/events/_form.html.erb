@@ -22,8 +22,8 @@
     <%= f.text_area :description, class: 'form-control' %>
   </div>
 
-  <div class="actions">
-    <%= f.submit 'Сохранить', class: 'btn btn-primary' %>
-    или <%= link_to 'вернуться', :back %>
+  <div class="actions form-group">
+    <%= f.submit t('Save'), class: 'btn btn-primary btn-block' %>
+    <%= link_to t('Back'), :back, class: 'btn btn-primary btn-block' %>
   </div>
 <% end %>

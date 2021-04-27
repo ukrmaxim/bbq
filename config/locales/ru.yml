@@ -1,0 +1,128 @@
+ru:
+  # Перевод моделей
+  activerecord:
+    # Перевод названия моделей
+    models:
+      user: 'Пользователь'
+      event: 'Событие'
+
+    # Перевод названий аттрибутов моделей
+    attributes:
+      user:
+        email: 'Email'
+        name: 'Имя'
+        password: 'Пароль'
+        password_confirmation: 'Подтверждение пароля'
+      event:
+        title: 'Название'
+        address: 'Место проведения'
+        datetime: 'Дата и время'
+        description: 'Описание'
+
+  # Перевод сообщений, которые отправляет контроллер
+  controllers:
+    events:
+      created: 'Вы создали новое мероприятие'
+      updated: 'Вы обновили мероприятие'
+      destroyed: 'Вы удалили мероприятие :('
+    users:
+      updated: 'Вы обновили свой профиль'
+
+  # Перевод названия приложения и компании-разработчика
+  app:
+    name: 'Мир событий'
+    company: 'Рога и копыта'
+
+  number_of_errors:
+    zero: '%{count} ошибок'
+    one: '%{count} ошибка'
+    few: '%{count} ошибки'
+    many: '%{count} ошибок'
+    other: '%{count} ошибки'
+
+  time:
+    am: утра
+    formats:
+      default: "%a, %d %b %Y, %H:%M:%S %z"
+      long: "%d %B %Y, %H:%M"
+      short: "%d %b, %H:%M"
+    pm: вечера
+
+  date:
+    abbr_day_names:
+      - Вс
+      - Пн
+      - Вт
+      - Ср
+      - Чт
+      - Пт
+      - Сб
+    abbr_month_names:
+      -
+      - янв.
+      - февр.
+      - марта
+      - апр.
+      - мая
+      - июня
+      - июля
+      - авг.
+      - сент.
+      - окт.
+      - нояб.
+      - дек.
+    day_names:
+      - воскресенье
+      - понедельник
+      - вторник
+      - среда
+      - четверг
+      - пятница
+      - суббота
+    formats:
+      default: "%d.%m.%Y"
+      long: "%-d %B %Y"
+      short: "%-d %b"
+    month_names:
+      -
+      - января
+      - февраля
+      - марта
+      - апреля
+      - мая
+      - июня
+      - июля
+      - августа
+      - сентября
+      - октября
+      - ноября
+      - декабря
+    order:
+      - :day
+      - :month
+      - :year
+
+  # Перевод ссылок и кнопок
+  Sign up: 'Регистрация'
+  Sign in: 'Войти'
+  Sign out: 'Выйти'
+  Log in: 'Мой аккаунт'
+  Profile: 'Мой профиль'
+  Remember me: 'Запомнить меня'
+  Forgot your password?: 'Забыли пароль?'
+  Didn't receive confirmation instructions?: 'Не получили инструкции по подтверждению?'
+  Didn't receive unlock instructions?: 'Не получили инструкции по разблокировке?'
+  Save: 'Сохранить'
+  Update: 'Обновить'
+  Back: 'Назад'
+  Create event: 'Создать событие'
+  Edit: 'Изменить'
+  Edit event: 'Изменить событие'
+  Edit profile: 'Редактировать профиль'
+  Change password: 'Сменить пароль'
+  Events list: 'Список событий'
+  Organized: 'Организовал'
+  Current password: 'Текущий пароль'
+  Cancel my account: 'Удалить аккаунт'
+  Are you sure?: 'Вы уверены?'
+  (leave blank if you don't want to change it): '(оставьте поле пустым, если не хотите его менять)'
