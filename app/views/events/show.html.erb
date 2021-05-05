@@ -7,7 +7,13 @@
       <div class="event-info-inner row">
         <div class="col-md-8">
           <div class="event-description">
-            <h1><%= @event.title %></h1>
+            <% if current_user_can_edit?(@event) %>
+              <h3><%= link_to @event.title, event_path(@event) %>
+                <small>(<%= t('my_event') %>)</small></h3>
+            <% else %>
+              <h3><%= link_to @event.title, event_path(@event) %>
+                <small>(<%= t('organizer') %> <%= link_to @event.user.name, user_path(@event.user) %>)</small></h3>
+            <% end %>
             <h3><%= l @event.datetime, format: :long %></h3>
             <h3><small><%= link_to @event.address,
                                    "https://www.google.com.ua/maps/search/#{@event.address}" %></small></h3>
@@ -22,6 +28,17 @@
                           class: 'btn btn-secondary mb-2' %>
             </div>
           <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-8">
+      <div class="event-comments buffer-top">
+        <%= render partial: 'comments/form', locals: { comment: @comment || @event.comments.build } %>
+        <div class="buffer-both">
+          <%= render partial: 'comments/comment', collection: @event.comments.except(@comment) %>
         </div>
       </div>
     </div>

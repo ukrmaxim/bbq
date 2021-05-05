@@ -2,11 +2,17 @@
 <div class="col-sm-6 col-md-10 mx-auto d-block mt-3">
   <div class="thumbnail">
     <%= content_tag 'div', '', class: 'event-background',
-      style: "background-image: url(#{asset_pack_path('media/images/event_thumb.jpg')})" %>
+                    style: "background-image: url(#{asset_pack_path('media/images/event_thumb.jpg')})" %>
     <div class="thumbnail-inner event-info-inner">
       <div class="caption">
         <div class="event-description">
-          <h3><%= link_to event.title, event_path(event) %></h3>
+          <% if current_user_can_edit?(event) %>
+            <h3><%= link_to event.title, event_path(event) %>
+              <small>(<%= t('my_event') %>)</small></h3>
+          <% else %>
+            <h3><%= link_to event.title, event_path(event) %>
+              <small>(<%= t('organizer') %> <%= link_to event.user.name, user_path(event.user) %>)</small></h3>
+          <% end %>
           <h3><small><%= l event.datetime, format: :long %></small></h3>
           <div class="buffer-both"><%= event.address %></div>
         </div>

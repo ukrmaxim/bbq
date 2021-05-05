@@ -9,6 +9,7 @@ Rails.start()
 
 import '../styles/application.scss'
 import 'bootstrap/dist/js/bootstrap'
+import "@fortawesome/fontawesome-free/css/all"
 
 const images = require.context('../images', true)
 

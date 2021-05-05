@@ -4,6 +4,13 @@ en:
     one: '%{count} error'
     other: '%{count} errors'
 
+  controllers:
+    comments:
+      created: 'Comment was successfully created.'
+      destroyed: 'Comment was successfully destroyed.'
+      error: 'Something went wrong :)'
+
+
   sign_up: 'Регистрация'
   sign_in: 'Sign in'
   sign_out: 'Sign out'
@@ -26,7 +33,9 @@ en:
   edit_event: 'Edit event'
   events_list: 'Events list'
   organized: 'Organized'
+  organizer: 'organizer:'
+  my_event: 'my event'
   cancel_account: 'Cancel account'
   are_you_sure: 'Are your sure?'
-  leave_blank: "(leave blank if you don't want to change it)"
+  leave_blank: "(leave blank if you don't want to change password)"
   no_events: 'The user has not yet organized any events'
