@@ -4,7 +4,7 @@
 <% if errors.any? %>
   <div class="alert alert-danger">
     <div class="lead buffer-bottom">
-      <%= t('you_allowed') %> <%= t(:number_of_errors, count: errors.count) %>
+      <%= t(:allowed, count: errors.count) %> <%= t(:number_of_errors, count: errors.count) %>
     </div>
     <ul>
       <% errors.full_messages.each do |message| %>

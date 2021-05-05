@@ -3,10 +3,10 @@ class CommentsController < ApplicationController
   before_action :set_comment, only: %i[ destroy ]
 
   def create
-    @comment = @event.comments.build(comment_params)
-    @comment.user = current_user
+    @new_comment = @event.comments.build(comment_params)
+    @new_comment.user = current_user
 
-    if @comment.save
+    if @new_comment.save
       redirect_to @event, notice: t('controllers.comments.created')
     else
       render 'events/show', alert: t('controllers.comments.error')
