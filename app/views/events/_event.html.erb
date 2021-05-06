@@ -6,7 +6,7 @@
     <div class="thumbnail-inner event-info-inner">
       <div class="caption">
         <div class="event-description">
-          <% if current_user_can_edit?(event) %>
+          <% if current_user_can_edit_event?(event) %>
             <h3><%= link_to event.title, event_path(event) %>
               <small>(<%= t('my_event') %>)</small></h3>
           <% else %>

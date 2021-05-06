@@ -1,4 +1,7 @@
 class User < ApplicationRecord
+  USERNAME_REGEXP = /\A[a-zA-ZА-Яа-я\d]+\z/
+  USEREMAIL_REGEXP = /\A[\w.]+@[a-zа-я\d]+\.[a-zа-я]+\z/
+
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :validatable
 
   has_many :events, dependent: :destroy

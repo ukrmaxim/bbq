@@ -40,7 +40,7 @@ ru:
       error: 'Что то пошло не так :('
     subscriptions:
       created: 'Вы подписались на это событие.'
-      destroyed: 'Вы отписались от этого события.'
+      destroyed: 'Подписчик удален.'
       error: 'Что то пошло не так :('
 
 
@@ -62,6 +62,9 @@ ru:
     few: '%{count} ошибки'
     many: '%{count} ошибок'
     other: '%{count} ошибки'
+
+  errors:
+    disable_subscription: 'Нельзя подписаться на свое событие'
 
   # Формат даты и времени
   time:

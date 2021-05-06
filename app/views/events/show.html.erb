@@ -7,7 +7,7 @@
       <div class="event-info-inner row">
         <div class="col-md-12">
           <div class="event-description">
-            <% if current_user_can_edit?(@event) %>
+            <% if current_user_can_edit_event?(@event) %>
               <h3><%= link_to @event.title, event_path(@event) %> <small>(<%= t('my_event') %>)</small></h3>
             <% else %>
               <h3><%= link_to @event.title, event_path(@event) %>
@@ -19,7 +19,7 @@
             <p><%= @event.description %></p>
           </div>
 
-          <% if current_user_can_edit?(@event) %>
+          <% if current_user_can_edit_event?(@event) %>
             <div class="buffer-top">
               <%= link_to t('edit'), edit_event_path(@event), class: 'btn btn-secondary mb-2' %>
               <%= link_to t('delete'), event_path(@event), method: :delete, data: { confirm: t('are_you_sure') }, class: 'btn btn-secondary mb-2' %>
@@ -42,8 +42,9 @@
 
     <div class="col-md-4">
       <div class="event-subscription-form">
-        <% if !current_user_can_edit?(@event) %>
-        <%= render partial: 'subscriptions/form', locals: {subscription: @new_subscription || @event.subscriptions.build} %>
+        <% if !current_user_can_edit_event?(@event) %>
+        <%= render partial: 'subscriptions/form',
+                   locals: { subscription: @new_subscription || @event.subscriptions.build } %>
         <% end %>
       </div>
     </div>
