@@ -6,32 +6,29 @@ class Subscription < ApplicationRecord
     validates :user_name, presence: true, length: { maximum: 40 }, format: { with: User::USERNAME_REGEXP }
     validates :user_email, presence: true, format: { with: User::USEREMAIL_REGEXP }
     validates :user_email, uniqueness: { scope: :event_id }
+    validate  :check_email_not_registered
   end
 
   with_options if: -> { user.present? } do
     validates :user, uniqueness: { scope: :event_id }
-    validate :disable_subscription
+    validate  :decline_self_subscription
   end
 
   def user_name
-    if user.present?
-      user.name
-    else
-      super
-    end
+    user&.name || super
   end
 
   def user_email
-    if user.present?
-      user.email
-    else
-      super
-    end
+    user&.email || super
   end
 
   private
 
-  def disable_subscription
-    errors.add(:user_id, message: I18n.t('errors.disable_subscription')) if user.id == event.user.id
+  def decline_self_subscription
+    errors.add(:base, :decline_self_subscription) if user.id == event.user.id
+  end
+
+  def check_email_not_registered
+    errors.add(:base, :email_exists) if User.where(email: "#{user_email}").present?
   end
 end

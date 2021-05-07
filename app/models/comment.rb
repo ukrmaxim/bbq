@@ -7,10 +7,6 @@ class Comment < ApplicationRecord
             format: { with: User::USERNAME_REGEXP }, unless: -> { user.present? }
 
   def user_name
-    if user.present?
-      user.name
-    else
-      super
-    end
+    user&.name || super
   end
 end

@@ -6,6 +6,13 @@ ru:
       event: 'Событие'
       comment: 'Комментарий'
       subscription: 'Подписка'
+    errors:
+      models:
+        subscription:
+          attributes:
+            base:
+              email_exists: 'Пользователь с данным email уже зарегистрирован'
+              decline_self_subscription: 'Нельзя подписаться на свое событие'
 
     # Перевод названий аттрибутов моделей
     attributes:
@@ -62,9 +69,6 @@ ru:
     few: '%{count} ошибки'
     many: '%{count} ошибок'
     other: '%{count} ошибки'
-
-  errors:
-    disable_subscription: 'Нельзя подписаться на свое событие'
 
   # Формат даты и времени
   time:

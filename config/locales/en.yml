@@ -1,4 +1,18 @@
 en:
+  activerecord:
+    models:
+      user: 'User'
+      event: 'Event'
+      comment: 'Comment'
+      subscription: 'Subscription'
+    errors:
+      models:
+        subscription:
+          attributes:
+            base:
+              email_exists: 'User with this email is already registered'
+              decline_self_subscription: 'You cannot subscribe to your event'
+
   allowed:
     one: 'You allowed'
     other: 'You allowed'
@@ -10,6 +24,7 @@ en:
 
   errors:
     disable_subscription: 'You cannot subscribe to your event'
+    email_exists: 'This email already exists'
 
   controllers:
     events:
