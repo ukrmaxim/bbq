@@ -9,8 +9,11 @@ class User < ApplicationRecord
   has_many :subscriptions, dependent: :destroy
 
   validates :name, presence: true, length: { maximum: 40 }, format: { with: USERNAME_REGEXP }
+  validates :avatar, file_size: { less_than_or_equal_to: 1.megabyte }
 
   after_commit :link_subscriptions, on: :create
+
+  mount_uploader :avatar, AvatarUploader
 
   private
 

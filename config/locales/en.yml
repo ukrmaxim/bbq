@@ -25,6 +25,11 @@ en:
   errors:
     disable_subscription: 'You cannot subscribe to your event'
     email_exists: 'This email already exists'
+    messages:
+      carrierwave_processing_error: "Cannot resize image."
+      carrierwave_integrity_error: "Not an image."
+      carrierwave_download_error: "Couldn't download image."
+      extension_whitelist_error: "You are not allowed to upload %{extension} files, allowed types: %{allowed_types}"
 
   controllers:
     events:

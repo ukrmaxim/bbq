@@ -17,6 +17,7 @@ ru:
     # Перевод названий аттрибутов моделей
     attributes:
       user:
+        avatar: 'Аватарка'
         email: 'Email'
         name: 'Имя'
         password: 'Пароль'
@@ -69,6 +70,14 @@ ru:
     few: '%{count} ошибки'
     many: '%{count} ошибок'
     other: '%{count} ошибки'
+
+  errors:
+    messages:
+      carrierwave_processing_error: "Невозможно изменить размер изображения."
+      carrierwave_integrity_error: "Это не картинка."
+      carrierwave_download_error: "Не могу загрузить картинку."
+      extension_whitelist_error: "Вы не можете загружать %{extension} файлы, разрешенные типы: %{allowed_types}"
+
 
   # Формат даты и времени
   time:
