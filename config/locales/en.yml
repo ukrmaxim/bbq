@@ -39,13 +39,21 @@ en:
     users:
       updated: 'You have updated your profile'
     comments:
-      created: 'Comment was successfully created.'
+      created: 'Comment added successfully.'
       destroyed: 'Comment was successfully destroyed.'
       error: 'Something went wrong :('
     subscriptions:
       created: 'You have subscribed to this event.'
       destroyed: 'Subscriber removed.'
       error: 'Something went wrong :('
+    photos:
+      created: 'Photo added successfully.'
+      destroyed: 'Photo successfully deleted.'
+      error: 'Something went wrong :('
+
+  app:
+    name: 'World of events'
+    company: 'Holiday Planet'
 
   sign_up: 'Sign up'
   sign_in: 'Sign in'
@@ -60,12 +68,14 @@ en:
   new_password: 'New password'
   confirm_new_password: 'Confirm new password'
   save: 'Save'
+  upload: 'Upload'
   update: 'Update'
   edit: 'Edit'
   delete: 'Delete'
   send: 'Send'
   will_go: 'Will go:'
   subscribe: 'Subscribe'
+  subscribers: 'Subscribers:'
   back: 'Back'
   create_event: 'Create event'
   edit_event: 'Edit event'

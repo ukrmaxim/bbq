@@ -10,8 +10,8 @@
               <h3><%= link_to @event.title, event_path(@event) %> <small>(<%= t('my_event') %>)</small></h3>
             <% else %>
               <h3><%= link_to @event.title, event_path(@event) %>
-                <small>(<%= t('organizer') %> <%= render partial: 'users/user', object: @event.user %>)</small></h3>
-<!--                <small>(<%#= t('organizer') %> <%#= link_to @event.user.name, user_path(@event.user) %>)</small></h3>-->
+<!--            <small>(<%#= t('organizer') %> <%#= render partial: 'users/user', object: @event.user %>)</small></h3>-->
+                <small>(<%= t('organizer') %> <%= link_to @event.user.name, user_path(@event.user) %>)</small></h3>
             <% end %>
             <h3><%= l @event.datetime, format: :long %></h3>
             <h3><small><%= link_to @event.address,
@@ -46,6 +46,17 @@
         <%= render partial: 'subscriptions/form',
                    locals: { subscription: @new_subscription || @event.subscriptions.build } %>
         <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <div class="event-comments buffer-top">
+      <%= render partial: 'photos/photo', collection: @event.photos.except(@new_photo) %>
+      <div class="buffer-both">
+        <%= render partial: 'photos/form', locals: { photo: @new_photo || @event.photos.build } %>
       </div>
     </div>
   </div>

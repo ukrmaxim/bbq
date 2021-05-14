@@ -5,17 +5,23 @@
                     style: "background-image: url(#{asset_pack_path('media/images/event_thumb.jpg')})" %>
     <div class="thumbnail-inner event-info-inner">
       <div class="caption">
-        <div class="event-description">
+        <div class="event-description text-left">
           <% if current_user_can_edit_event?(event) %>
             <h3><%= link_to event.title, event_path(event) %>
               <small>(<%= t('my_event') %>)</small></h3>
           <% else %>
             <h3><%= link_to event.title, event_path(event) %>
-              <small>(<%= t('organizer') %> <%= render partial: 'users/user', object: event.user %>)</small></h3>
-<!--              <small>(<%#= t('organizer') %> <%#= link_to event.user.name, user_path(event.user) %>)</small></h3>-->
+<!--          <small>(<%#= t('organizer') %> <%#= render partial: 'users/user', object: event.user %>)</small></h3>-->
+              <small>(<%= t('organizer') %> <%= link_to event.user.name, user_path(event.user) %>)</small></h3>
           <% end %>
           <h3><small><%= l event.datetime, format: :long %></small></h3>
           <div class="buffer-both"><%= event.address %></div>
+        </div>
+        <div class="event-description text-left">
+          <% event.subscribers.each do |user| %>
+            <p><b><%= t('subscribers') %></b>
+              <%= link_to image_tag(user_avatar(user), class: 'img-icon', title: user.name), user_path(user) %>
+          <% end %>
         </div>
       </div>
     </div>
