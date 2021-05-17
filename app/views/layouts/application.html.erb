@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html  class="h-100" lang="ru">
   <head>
-    <title>BBQ</title>
+    <title><%= t('app.name') %></title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -14,7 +14,7 @@
   <main class="flex-shrink-0" role="main">
   <div class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
-      <%= link_to "BBQ!", root_path, class: 'navbar-brand' %>
+      <%= link_to t('app.name'), root_path, class: 'navbar-brand' %>
       <div class="collapse navbar-collapse">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <% if user_signed_in? %>
@@ -40,7 +40,7 @@
   </main>
     <footer class="footer mt-auto py-3">
       <div class="container-fluid">
-        <span class="text-muted">&copy; Company 2021</span>
+        <span class="text-muted">&copy; <%= t('app.company') %> <%= Time.now.strftime("%Y") %></span>
       </div>
     </footer>
   </body>

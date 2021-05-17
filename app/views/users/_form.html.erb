@@ -11,6 +11,13 @@
     <%= f.text_field :email, class: 'form-control' %>
   </div>
 
+  <div class="form-group">
+    <%= f.label :avatar %><br>
+    <%= image_tag(@user.avatar.thumb.url, alt: 'Avatar') if @user.avatar? %>
+    <%= f.file_field :avatar %>
+    <%= f.hidden_field :avatar_cache %>
+  </div>
+
   <div class="actions form-group">
     <%= f.submit t('save'), class: 'btn btn-primary btn-block' %>
     <%= link_to t('back'), :back, class: 'btn btn-primary btn-block' %>

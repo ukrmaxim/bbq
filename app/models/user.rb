@@ -7,10 +7,14 @@ class User < ApplicationRecord
   has_many :events, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :subscriptions, dependent: :destroy
+  has_many :photos, dependent: :destroy
 
   validates :name, presence: true, length: { maximum: 40 }, format: { with: USERNAME_REGEXP }
+  validates :avatar, file_size: { less_than_or_equal_to: 1.megabyte }
 
   after_commit :link_subscriptions, on: :create
+
+  mount_uploader :avatar, AvatarUploader
 
   private
 

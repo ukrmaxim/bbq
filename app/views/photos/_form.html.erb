@@ -1,0 +1,10 @@
+<%= form_for [@event, photo], html: {multipart: true} do |f| %>
+  <%= render partial: 'partials/form_errors', locals: {model: photo} %>
+
+  <div class="form-group">
+    <%= f.label :photo %><br>
+    <%= image_tag(photo.image.thumb.url, alt: 'Photo') if photo.image? %>
+    <%= f.file_field :image %>
+    <%= f.hidden_field :image_cache %> <%= f.submit t('upload'), class: 'btn btn-primary' %>
+  </div>
+<% end %>
