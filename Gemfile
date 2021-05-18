@@ -17,4 +17,6 @@ gem 'rails-i18n', '~> 6.0.0' # For 6.0.0 or higher
 
 group :development, :test do
   gem 'pry-rails'
+  gem 'dotenv-rails', '~> 2.7', '>= 2.7.6'
+  gem 'letter_opener', '~> 1.7'
 end
