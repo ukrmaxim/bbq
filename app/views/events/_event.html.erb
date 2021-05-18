@@ -18,9 +18,11 @@
           <div class="buffer-both"><%= event.address %></div>
         </div>
         <div class="event-description text-left">
+          <% if event.subscribers.count > 0 %>
           <b><%= t('subscribers') %></b>
           <% event.subscribers.each do |user| %>
             <%= link_to image_tag(user_avatar(user), class: 'img-icon', title: user.name), user_path(user) %>
+          <% end %>
           <% end %>
         </div>
       </div>

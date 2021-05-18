@@ -1,0 +1,12 @@
+<%= t '.title' %>
+----
+
+<%= t '.name' %>: <%= @name %>
+<%= t '.email' %>: <%=  @email %>
+
+----------------------
+
+<%= t '.event' %>: <%= @event.title %>
+<%= t '.datetime' %>: <%= l @event.datetime, format: :long %>
+
+--------------------------------

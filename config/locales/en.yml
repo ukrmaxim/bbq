@@ -55,6 +55,24 @@ en:
     name: 'World of events'
     company: 'Holiday Planet'
 
+  event_mailer:
+    subscription:
+      subject: 'New event subscription: '
+      title: 'New subscription'
+      name: 'Name'
+      email: 'E-mail'
+      author: 'Author'
+      event: 'Event'
+      datetime: 'Will take place'
+      owner: 'Owner'
+    comment:
+      subject: 'New comment for the event: '
+      title: 'New comment'
+      author: 'Author'
+      event: 'Event'
+      datetime: 'Will take place'
+      owner: 'Owner'
+
   sign_up: 'Sign up'
   sign_in: 'Sign in'
   sign_out: 'Sign out'

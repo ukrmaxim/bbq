@@ -83,7 +83,6 @@ ru:
       carrierwave_download_error: "Не могу загрузить картинку."
       extension_whitelist_error: "Вы не можете загружать %{extension} файлы, разрешенные типы: %{allowed_types}"
 
-
   # Формат даты и времени
   time:
     am: утра
@@ -146,6 +145,25 @@ ru:
       - :day
       - :month
       - :year
+
+  # Переводы для ActionMailer
+  event_mailer:
+    subscription:
+      subject: 'Новая подписка на событие: '
+      title: 'Новая подписка'
+      name: 'Имя'
+      email: 'E-mail'
+      author: 'Автор'
+      event: 'Событие'
+      datetime: 'Состоится'
+      owner: 'Организатор'
+    comment:
+      subject: 'Новый комментарий к событию: '
+      title: 'Новый комментарий'
+      author: 'Автор'
+      event: 'Событие'
+      datetime: 'Состоится'
+      owner: 'Организатор'
 
   # Перевод ссылок и кнопок
   sign_up: 'Регистрация'
