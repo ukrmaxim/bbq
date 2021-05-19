@@ -12,8 +12,10 @@
       <%= f.email_field :user_email, class: 'form-control' %>
     </div>
   <% end %>
-
-  <div class="actions text-right">
-    <%= f.submit t('subscribe'), class: 'btn btn-primary' %>
-  </div>
+<%# binding.pry %>
+  <% unless current_user_already_subscriber?(@event) %>
+    <div class="actions text-right">
+      <%= f.submit t('subscribe'), class: 'btn btn-primary' %>
+    </div>
+  <% end %>
 <% end %>

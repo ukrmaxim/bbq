@@ -14,6 +14,7 @@ gem 'mini_magick', '~> 4.11'
 gem 'file_validators', '~> 3.0'
 gem 'devise', '~> 4.7', '>= 4.7.3'
 gem 'rails-i18n', '~> 6.0.0' # For 6.0.0 or higher
+gem 'down', '~> 5.2', '>= 5.2.1'
 
 group :development, :test do
   gem 'pry-rails'

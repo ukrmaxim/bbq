@@ -72,6 +72,13 @@ en:
       event: 'Event'
       datetime: 'Will take place'
       owner: 'Owner'
+    photo:
+      subject: 'New event photo: '
+      title: 'New photo'
+      author: 'Added'
+      event: 'Event'
+      datetime: 'Will take place'
+      owner: 'Owner'
 
   sign_up: 'Sign up'
   sign_in: 'Sign in'
@@ -93,7 +100,7 @@ en:
   send: 'Send'
   will_go: 'Will go:'
   subscribe: 'Subscribe'
-  subscribers: 'Subscribers:'
+  subscribers: 'Subscribed:'
   back: 'Back'
   create_event: 'Create event'
   edit_event: 'Edit event'

@@ -164,6 +164,13 @@ ru:
       event: 'Событие'
       datetime: 'Состоится'
       owner: 'Организатор'
+    photo:
+      subject: 'Новое фото к событию: '
+      title: 'Новое фото'
+      author: 'Добавил'
+      event: 'Событие'
+      datetime: 'Состоится'
+      owner: 'Организатор'
 
   # Перевод ссылок и кнопок
   sign_up: 'Регистрация'
@@ -185,7 +192,7 @@ ru:
   delete: 'Удалить'
   send: 'Отправить'
   subscribe: 'Подписаться'
-  subscribers: 'Подписчики:'
+  subscribers: 'Подписались:'
   will_go: 'Пойдут:'
   back: 'Назад'
   create_event: 'Создать событие'

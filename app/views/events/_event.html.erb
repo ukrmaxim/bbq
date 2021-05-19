@@ -11,7 +11,6 @@
               <small>(<%= t('my_event') %>)</small></h3>
           <% else %>
             <h3><%= link_to event.title, event_path(event) %>
-<!--          <small>(<%#= t('organizer') %> <%#= render partial: 'users/user', object: event.user %>)</small></h3>-->
               <small>(<%= t('organizer') %> <%= link_to event.user.name, user_path(event.user) %>)</small></h3>
           <% end %>
           <h3><small><%= l event.datetime, format: :long %></small></h3>

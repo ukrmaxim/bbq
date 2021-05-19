@@ -7,7 +7,7 @@ class CommentsController < ApplicationController
     @new_comment.user = current_user
 
     if @new_comment.save
-      notify_subscribers(@event, @new_comment)
+      notify_subscribers_about_comment(@event, @new_comment)
 
       redirect_to @event, notice: t('controllers.comments.created')
     else
@@ -41,13 +41,12 @@ class CommentsController < ApplicationController
     params.require(:comment).permit(:body, :user_name)
   end
 
-  def notify_subscribers(event, comment)
-    # собираем всех подписчиков и незареганных пользователей, подписавшихся на событи в массив мэйлов
-    # all_emails = (event.subscribers.map(&:email)+event.subscriptions.map(&:user_email)).uniq
-    all_emails = (event.subscribers.map(&:email)+event.subscriptions.map(&:user_email)+[event.user.email]).uniq
+  private
 
-    # XXX: Этот метод может выполняться долго из-за большого числа подписчиков
-    # поэтому в реальных приложениях такие вещи надо выносить в background задачи!
+  def notify_subscribers_about_comment(event, comment)
+    # собираем всех подписчиков и незареганных пользователей, подписавшихся на событие в массив мэйлов
+    all_emails = (event.subscribers.map(&:email) + event.subscriptions.map(&:user_email) + [event.user.email]).uniq
+
     all_emails.each do |mail|
       EventMailer.comment(event, comment, mail).deliver_later
     end

@@ -1,0 +1,10 @@
+<%= t '.title' %>
+----
+
+<%= t '.author' %>: <%= @photo.user.name %>
+<%= image_tag attachments['image.jpg'].url %>
+
+--------------------------------
+<%= t '.event' %>: <%= @event.title %>
+<%= t '.datetime' %>: <%= l @event.datetime, format: :long %>
+<%= t '.owner' %>: <%= @event.user.name %>

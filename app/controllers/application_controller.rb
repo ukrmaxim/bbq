@@ -8,6 +8,7 @@ class ApplicationController < ActionController::Base
 
   # Хелпер метод, доступный во вьюхах
   helper_method :current_user_can_edit_event?
+  helper_method :current_user_already_subscriber?
 
   # Настройка для девайза — разрешаем обновлять профиль, но обрезаем
   # параметры, связанные со сменой пароля.
@@ -20,5 +21,8 @@ class ApplicationController < ActionController::Base
   def current_user_can_edit_event?(model)
     user_signed_in? && (model.user == current_user || (model.try(:event).present? && model.event.user == current_user))
   end
-end
 
+  def current_user_already_subscriber?(model)
+    model.subscriptions.map {|item| item.user&.id}.include?(current_user.id)
+  end
+end
