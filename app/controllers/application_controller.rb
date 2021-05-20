@@ -23,6 +23,6 @@ class ApplicationController < ActionController::Base
   end
 
   def current_user_already_subscriber?(model)
-    model.subscriptions.map {|item| item.user&.id}.include?(current_user.id)
+    user_signed_in? && model.subscriptions.map {|item| item.user&.id}.include?(current_user.id)
   end
 end

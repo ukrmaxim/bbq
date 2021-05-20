@@ -5,7 +5,7 @@ class EventMailer < ApplicationMailer
     @name = subscription.user_name
     @event = event
 
-    mail to: event.user.email, subject: t('event_mailer.subscription.subject')+"#{event.title}"
+    mail to: event.user.email, subject: default_i18n_subject(title: event.title)
   end
 
   # Письмо о новом комментарии на заданный email
@@ -13,7 +13,7 @@ class EventMailer < ApplicationMailer
     @comment = comment
     @event = event
 
-    mail to: email, subject: t('event_mailer.comment.subject')+"#{event.title}"
+    mail to: email, subject: default_i18n_subject(title: event.title)
   end
 
   def photo(event, photo, email)
@@ -21,11 +21,11 @@ class EventMailer < ApplicationMailer
     @photo = photo
 
     if Rails.env.production?
-      attachments.inline['image.jpg'] = File.read(Down.download("#{photo.image}"))
+      attachments.inline['image.jpg'] = File.read(Down.download("#{photo.image.thumb}"))
     else
-      attachments.inline['image.jpg'] = File.read("public#{photo.image}")
+      attachments.inline['image.jpg'] = File.read("public#{photo.image.thumb}")
     end
 
-    mail to: email, subject: t('event_mailer.photo.subject')+"#{event.title}"
+    mail to: email, subject: default_i18n_subject(title: event.title)
   end
 end

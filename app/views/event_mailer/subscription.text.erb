@@ -6,7 +6,7 @@
 
 ----------------------
 
-<%= t '.event' %>: <%= @event.title %>
+<%= t '.event' %>: <%= link_to @event.title, @event %>
 <%= t '.datetime' %>: <%= l @event.datetime, format: :long %>
 
 --------------------------------

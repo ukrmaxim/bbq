@@ -149,7 +149,7 @@ ru:
   # Переводы для ActionMailer
   event_mailer:
     subscription:
-      subject: 'Новая подписка на событие: '
+      subject: "Новая подписка на событие: %{title}"
       title: 'Новая подписка'
       name: 'Имя'
       email: 'E-mail'
@@ -158,14 +158,14 @@ ru:
       datetime: 'Состоится'
       owner: 'Организатор'
     comment:
-      subject: 'Новый комментарий к событию: '
+      subject: "Новый комментарий к событию: %{title}"
       title: 'Новый комментарий'
       author: 'Автор'
       event: 'Событие'
       datetime: 'Состоится'
       owner: 'Организатор'
     photo:
-      subject: 'Новое фото к событию: '
+      subject: "Новое фото к событию: %{title}"
       title: 'Новое фото'
       author: 'Добавил'
       event: 'Событие'

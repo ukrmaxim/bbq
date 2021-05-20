@@ -1,10 +1,10 @@
-<h1><%= t '.title' %></h1>
+<h2><%= t '.title' %></h2>
 <p><%= t '.author' %>: <strong><%= @photo.user.name %></strong></p>
 <p><%= image_tag attachments['image.jpg'].url %></p>
 
 <hr/>
 
-<p><%= t '.event' %>: <strong><%= @event.title %></strong></p>
+<p><%= t '.event' %>: <strong><%= link_to @event.title, @event %></strong></p>
 
 <p><%= t '.datetime' %>: <strong><%= l @event.datetime, format: :long %></strong></p>
 

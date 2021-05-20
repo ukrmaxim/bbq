@@ -5,6 +5,6 @@
 <%= image_tag attachments['image.jpg'].url %>
 
 --------------------------------
-<%= t '.event' %>: <%= @event.title %>
+<%= t '.event' %>: <%= link_to @event.title, @event %>
 <%= t '.datetime' %>: <%= l @event.datetime, format: :long %>
 <%= t '.owner' %>: <%= @event.user.name %>

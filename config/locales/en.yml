@@ -57,7 +57,7 @@ en:
 
   event_mailer:
     subscription:
-      subject: 'New event subscription: '
+      subject: "New event subscription: %{title}"
       title: 'New subscription'
       name: 'Name'
       email: 'E-mail'
@@ -66,14 +66,14 @@ en:
       datetime: 'Will take place'
       owner: 'Owner'
     comment:
-      subject: 'New comment for the event: '
+      subject: "New comment for the event: %{title}"
       title: 'New comment'
       author: 'Author'
       event: 'Event'
       datetime: 'Will take place'
       owner: 'Owner'
     photo:
-      subject: 'New event photo: '
+      subject: "New event photo: %{title}"
       title: 'New photo'
       author: 'Added'
       event: 'Event'
