@@ -21,7 +21,7 @@ class EventMailer < ApplicationMailer
     @photo = photo
 
     if Rails.env.production?
-      attachments.inline['image.jpg'] = File.read(Down.download("#{photo.image.thumb}"))
+      attachments.inline['image.jpg'] = File.read(Down.download(photo.image.thumb))
     else
       attachments.inline['image.jpg'] = File.read("public#{photo.image.thumb}")
     end
