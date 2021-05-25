@@ -7,9 +7,11 @@ import Rails from "@rails/ujs"
 
 Rails.start()
 
+
 import '../styles/application.scss'
 import 'bootstrap/dist/js/bootstrap'
 import "@fortawesome/fontawesome-free/css/all"
+import './yandexmap'
 
 const images = require.context('../images', true)
 

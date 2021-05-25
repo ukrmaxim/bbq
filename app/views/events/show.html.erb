@@ -13,8 +13,16 @@
                 <small>(<%= t('organizer') %> <%= link_to @event.user.name, user_path(@event.user) %>)</small></h3>
             <% end %>
             <h3><%= l @event.datetime, format: :long %></h3>
-            <h3><small><%= link_to @event.address, "https://www.google.com.ua/maps/search/#{@event.address}" %></small></h3>
+            <h3><small><%= link_to @event.address, "https://www.google.com.ua/maps/search/#{@event.address}" %></small>
+            </h3>
             <p><%= @event.description %></p>
+          </div>
+
+          <div class="event-description">
+            <% if @event.subscriptions.count > 0 %>
+              <p><b><%= t('will_go') %></b><%= render partial: 'subscriptions/subscription',
+                                                      collection: @event.subscriptions.except(@new_subscription) %></p>
+            <% end %>
           </div>
 
           <% if current_user_can_edit_event?(@event) %>
@@ -23,6 +31,7 @@
               <%= link_to t('delete'), event_path(@event), method: :delete, data: { confirm: t('are_you_sure') }, class: 'btn btn-secondary mb-2' %>
             </div>
           <% end %>
+
         </div>
       </div>
     </div>
@@ -30,19 +39,14 @@
 
   <div class="row">
     <div class="col-md-8">
-      <div class="event-subscriptions">
-        <% if @event.subscriptions.count > 0 %>
-        <p><b><%= t('will_go') %></b><%= render partial: 'subscriptions/subscription',
-        collection: @event.subscriptions.except(@new_subscription) %></p>
-        <% end %>
-      </div>
+      <%= content_tag('div', '', id: 'map', style: "width: 500px; height: 300px", data: { address: @event.address }) %>
     </div>
 
     <div class="col-md-4">
       <div class="event-subscription-form">
         <% if !current_user_can_edit_event?(@event) %>
-        <%= render partial: 'subscriptions/form',
-                   locals: { subscription: @new_subscription || @event.subscriptions.build } %>
+          <%= render partial: 'subscriptions/form',
+                     locals: { subscription: @new_subscription || @event.subscriptions.build } %>
         <% end %>
       </div>
     </div>
@@ -52,6 +56,7 @@
 <div class="row">
   <div class="col-md-12">
     <div class="event-comments buffer-top">
+      <h3><%= t('event_photos') %></h3>
       <%= render partial: 'photos/photo', collection: @event.photos.except(@new_photo) %>
       <div class="buffer-both">
         <%= render partial: 'photos/form', locals: { photo: @new_photo || @event.photos.build } %>
