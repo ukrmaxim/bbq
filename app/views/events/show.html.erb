@@ -4,7 +4,7 @@
       <%= content_tag 'div', '', class: 'event-background',
                       style: "background-image: url(#{asset_pack_path('media/images/event.jpg')})" %>
       <div class="event-info-inner row">
-        <div class="col-md-12 mt-1">
+        <div class="col-md-9 mt-1">
           <div class="event-description">
             <% if current_user_can_edit_event?(@event) %>
               <h3><%= link_to @event.title, event_path(@event) %> <small>(<%= t('my_event') %>)</small></h3>
@@ -31,25 +31,24 @@
               <%= link_to t('delete'), event_path(@event), method: :delete, data: { confirm: t('are_you_sure') }, class: 'btn btn-secondary mb-2' %>
             </div>
           <% end %>
+        </div>
 
+        <div class="col-md-3 mt-2">
+          <div class="event-subscription-form">
+            <% if !current_user_can_edit_event?(@event) %>
+              <%= render partial: 'subscriptions/form',
+                         locals: { subscription: @new_subscription || @event.subscriptions.build } %>
+            <% end %>
+          </div>
         </div>
       </div>
     </div>
   </div>
+</div>
 
-  <div class="row">
-    <div class="col-md-8">
-      <%= content_tag('div', '', id: 'map', style: "width: 500px; height: 300px", data: { address: @event.address }) %>
-    </div>
-
-    <div class="col-md-4">
-      <div class="event-subscription-form">
-        <% if !current_user_can_edit_event?(@event) %>
-          <%= render partial: 'subscriptions/form',
-                     locals: { subscription: @new_subscription || @event.subscriptions.build } %>
-        <% end %>
-      </div>
-    </div>
+<div class="row">
+  <div class="col-md-9">
+    <%= content_tag('div', '', id: 'map', style: "width: 600px; height: 400px", data: { address: @event.address }) %>
   </div>
 </div>
 
@@ -66,7 +65,7 @@
 </div>
 
 <div class="row">
-  <div class="col-md-12">
+  <div class="col-md-9">
     <div class="event-comments buffer-top">
       <%= render partial: 'comments/form', locals: { comment: @new_comment || @event.comments.build } %>
       <div class="buffer-both">
