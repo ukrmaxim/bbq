@@ -1,0 +1,12 @@
+<h1><%= t('pincode_access') %></h1>
+
+<%= form_for '', method: :post do |f| %>
+  <div class="form-group">
+    <%= f.password_field :pincode %>
+    <%= f.submit t('send'), class: 'btn btn-primary' %>
+  </div>
+
+  <div class="actions form-group">
+    <%= link_to t('back'), :back, class: 'btn btn-primary' %>
+  </div>
+<% end %>

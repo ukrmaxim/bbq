@@ -12,6 +12,27 @@ en:
             base:
               email_exists: 'User with this email is already registered'
               decline_self_subscription: 'You cannot subscribe to your event'
+    attributes:
+      user:
+        avatar: 'Avatar'
+        email: 'E-mail'
+        name: 'Name'
+        password: 'Password'
+        password_confirmation: 'Password confirmation'
+      event:
+        title: 'Title'
+        address: 'Address'
+        datetime: 'Date and time'
+        description: 'Description'
+        pincode: 'PIN'
+      comment:
+        body: 'Your comment'
+        user_name: 'Your name'
+      subscription:
+        user_name: 'Your name'
+        user_email: 'E-mail'
+      photo:
+        photo: 'Photo'
 
   allowed:
     one: 'You allowed'
@@ -112,3 +133,4 @@ en:
   are_you_sure: 'Are your sure?'
   leave_blank: "(leave blank if you don't want to change password)"
   no_events: 'The user has not yet organized any events'
+  pincode_access: 'Access only by pin code'

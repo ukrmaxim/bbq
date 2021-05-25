@@ -18,7 +18,7 @@ ru:
     attributes:
       user:
         avatar: 'Аватарка'
-        email: 'Email'
+        email: 'E-mail'
         name: 'Имя'
         password: 'Пароль'
         password_confirmation: 'Подтверждение пароля'
@@ -27,6 +27,7 @@ ru:
         address: 'Место проведения'
         datetime: 'Дата и время'
         description: 'Описание'
+        pincode: 'Пин-код'
       comment:
         body: 'Ваш комментарий'
         user_name: 'Ваше имя'
@@ -42,6 +43,7 @@ ru:
       created: 'Вы создали новое событие'
       updated: 'Вы обновили событие'
       destroyed: 'Вы удалили событие :('
+      wrong_pincode: 'Пин-код не верный'
     users:
       updated: 'Вы обновили свой профиль'
     comments:
@@ -205,3 +207,4 @@ ru:
   are_you_sure: 'Вы уверены?'
   leave_blank: '(оставьте поле пустым, если не хотите менять пароль)'
   no_events: 'Пользователь пока не организовал ни одного события'
+  pincode_access: 'Введите пин-код'
