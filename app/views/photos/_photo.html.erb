@@ -1,5 +1,6 @@
 <span class="buffer-bottom">
-  <%= link_to image_tag(photo.image.thumb.url), photo.image.url %>
+  <%= link_to image_tag(photo.image.thumb.url), photo.image.url, data: {toggle: "lightbox", gallery:
+    "ukrbbq-gallery"} %>
   <% if current_user_can_edit_event?(photo) %>
     <%= link_to(fa_icon('trash'), event_photo_path(photo.event, photo),
                 method: :delete, data: { confirm: t('are_you_sure') }) %>
