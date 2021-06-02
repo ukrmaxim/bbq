@@ -7,7 +7,8 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_pack_tag 'application', media: 'all' %>
-    <%= javascript_include_tag "https://api-maps.yandex.ru/2.1/?apikey=#{ENV['YANDEX_MAPS_API_KEY']}&lang=ru_RU" %>
+    <%= javascript_include_tag "https://api-maps.yandex.ru/2.1/?apikey=#{Rails.application.credentials
+      .yandex[:maps_api_key]}&lang=ru_RU" %>
     <%= javascript_pack_tag 'application' %>
   </head>
 

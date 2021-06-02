@@ -18,6 +18,5 @@ gem 'down', '~> 5.2', '>= 5.2.1'
 
 group :development, :test do
   gem 'pry-rails'
-  gem 'dotenv-rails', '~> 2.7', '>= 2.7.6'
   gem 'letter_opener', '~> 1.7'
 end
