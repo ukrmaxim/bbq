@@ -195,6 +195,8 @@ ru:
   send: 'Отправить'
   subscribe: 'Подписаться'
   subscribers: 'Подписались:'
+  comments: 'Комментов:'
+  photos: 'Фоток:'
   will_go: 'Пойдут:'
   back: 'Назад'
   create_event: 'Создать событие'

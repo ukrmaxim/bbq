@@ -18,10 +18,22 @@
         </div>
         <div class="event-description text-left">
           <% if event.subscribers.count > 0 %>
-          <b><%= t('subscribers') %></b>
-          <% event.subscribers.each do |user| %>
-            <%= link_to image_tag(user_avatar(user), class: 'img-icon', title: user.name), user_path(user) %>
+            <b><%= t('subscribers') %></b>
+            <% event.subscribers.each do |user| %>
+              <%= link_to image_tag(user_avatar(user), class: 'img-icon', title: user.name), user_path(user) %>
+            <% end %>
           <% end %>
+        </div>
+
+        <div class="event-description text-left">
+          <% if event.comments.count > 0 %>
+            <b><%= t('comments') %> <%= event.comments.count %></b>
+          <% end %>
+        </div>
+
+        <div class="event-description text-left">
+          <% if event.photos.count > 0 %>
+            <b><%= t('photos') %> <%= event.photos.count %></b>
           <% end %>
         </div>
       </div>
