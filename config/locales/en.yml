@@ -122,6 +122,8 @@ en:
   will_go: 'Will go:'
   subscribe: 'Subscribe'
   subscribers: 'Subscribed:'
+  comments: 'Comments:'
+  photos: 'Photos:'
   back: 'Back'
   create_event: 'Create event'
   edit_event: 'Edit event'
