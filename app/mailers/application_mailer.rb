@@ -1,4 +1,4 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: 'info@bf-con.com'
+  default from: 'info@telebot.pro'
   layout 'mailer'
 end
