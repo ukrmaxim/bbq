@@ -10,7 +10,7 @@ gem 'webpacker', '~> 5.0'
 gem 'jbuilder', '~> 2.7'
 gem 'carrierwave', '~> 2.2', '>= 2.2.1'
 gem 'fog-aws', '~> 3.10'
-gem 'mini_magick', '~> 4.11'
+gem 'mini_magick', '~> 4.11' # need sudo apt install imagemagick
 gem 'file_validators', '~> 3.0'
 gem 'devise', '~> 4.7', '>= 4.7.3'
 gem 'rails-i18n', '~> 6.0.0' # For 6.0.0 or higher
@@ -19,4 +19,9 @@ gem 'down', '~> 5.2', '>= 5.2.1'
 group :development, :test do
   gem 'pry-rails'
   gem 'letter_opener', '~> 1.7'
+  gem 'capistrano', '~> 3.16'
+  gem 'capistrano-rails', '~> 1.6', '>= 1.6.1'
+  gem 'capistrano-passenger', '~> 0.2.1'
+  gem 'capistrano-rbenv', '~> 2.2'
+  gem 'capistrano-bundler', '~> 2.0', '>= 2.0.1'
 end
