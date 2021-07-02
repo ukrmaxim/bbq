@@ -1,32 +1,36 @@
 class EventsController < ApplicationController
-  before_action :authenticate_user!, except: %i[ show index ]
-  # Задаем объект @event для экшена show
-  before_action :set_event, only: %i[ show ]
-  # Задаем объект @event от текущего юзера для других действий
-  before_action :set_current_user_event, only: %i[ edit update destroy ]
+  before_action :authenticate_user!, except: %i[show index]
+  before_action :set_event, only: %i[show edit update destroy]
   before_action :password_guard!, only: [:show]
+
 
   # GET /events
   def index
     @events = Event.all
+    authorize @events
   end
 
   # GET /events/1
   def show
+    authorize @event
   end
 
   # GET /events/new
   def new
-    @event = current_user.events.build
+    @event = Event.new
+    authorize @event
   end
 
   # GET /events/1/edit
   def edit
+    authorize @event
   end
 
   # POST /events
   def create
     @event = current_user.events.build(event_params)
+
+    authorize @event
 
     if @event.save
       redirect_to @event, notice: t('controllers.events.created')
@@ -37,6 +41,8 @@ class EventsController < ApplicationController
 
   # PATCH/PUT /events/1
   def update
+    authorize @event
+
     if @event.update(event_params)
       redirect_to @event, notice: t('controllers.events.updated')
     else
@@ -46,6 +52,8 @@ class EventsController < ApplicationController
 
   # DELETE /events/1
   def destroy
+    authorize @event
+
     @event.destroy
     redirect_to @event, notice: t('controllers.events.destroyed')
   end
@@ -71,10 +79,6 @@ class EventsController < ApplicationController
       end
       render 'pincode_form'
     end
-  end
-
-  def set_current_user_event
-    @event = current_user.events.find(params[:id])
   end
 
   def set_event
