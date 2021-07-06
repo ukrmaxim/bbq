@@ -28,4 +28,5 @@ group :development, :test do
   gem 'rspec-rails', '~> 5.0', '>= 5.0.1'
   gem 'rails-controller-testing', '~> 1.0', '>= 1.0.5'
   gem 'pundit-matchers', '~> 1.6'
+  gem 'factory_bot_rails'
 end

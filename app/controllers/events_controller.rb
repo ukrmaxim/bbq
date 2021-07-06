@@ -1,23 +1,30 @@
 class EventsController < ApplicationController
   before_action :authenticate_user!, except: %i[show index]
   before_action :set_event, only: %i[show edit update destroy]
-  before_action :password_guard!, only: [:show]
 
+  after_action :verify_authorized, except: :index
+  after_action :verify_policy_scoped, only: :index
 
   # GET /events
   def index
-    @events = Event.all
-    authorize @events
+    @events = policy_scope(Event)
   end
 
   # GET /events/1
   def show
+    if params[:pincode].present? && @event.pincode_valid?(params[:pincode])
+      cookies.permanent["event_#{@event.id}_pincode"] = params[:pincode]
+    end
     authorize @event
+
+  rescue Pundit::NotAuthorizedError
+    flash.now[:alert] = t('controllers.events.wrong_pincode') if params[:pincode].present?
+    render 'pincode_form'
   end
 
   # GET /events/new
   def new
-    @event = Event.new
+    @event = current_user.events.build
     authorize @event
   end
 
@@ -59,27 +66,6 @@ class EventsController < ApplicationController
   end
 
   private
-
-  def password_guard!
-    return true if @event.pincode.blank?
-    return true if signed_in? && current_user == @event.user
-
-    # Юзер на чужом событии (или не за логином). Проверяем, правильно ли передал
-    # пинкод. Если правильно, запоминаем в куках этого юзера этот пинкод для
-    # данного события.
-    if params[:pincode].present? && @event.pincode_valid?(params[:pincode])
-      cookies.permanent["events_#{@event.id}_pincode"] = params[:pincode]
-    end
-
-    # Проверяем — верный ли в куках пинкод, если нет — ругаемся и рендерим форму
-    pincode = cookies.permanent["events_#{@event.id}_pincode"]
-    unless @event.pincode_valid?(pincode)
-      if params[:pincode].present?
-        flash.now[:alert] = t('controllers.events.wrong_pincode')
-      end
-      render 'pincode_form'
-    end
-  end
 
   def set_event
     @event = Event.find(params[:id])
