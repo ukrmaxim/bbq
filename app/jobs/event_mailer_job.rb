@@ -1,26 +1,22 @@
 class EventMailerJob < ApplicationJob
   queue_as :mailer
 
-  def perform(event, options = {})
-    case options
+  def perform(*options)
+    case options[1]
     when Comment
-    if options.user.present?
-        all_emails = event.subscriptions.map(&:user_email) + [event.user.email] - [options.user.email]
-      else
-        all_emails = event.subscriptions.map(&:user_email) + [event.user.email]
-      end
+      all_emails = options[0].subscriptions.map(&:user_email) + [options[0].user.email] - [options[1].user.email]
 
       all_emails.each do |mail|
-        EventMailer.comment(event, options, mail).deliver_now
+        EventMailer.comment(options[0], options[1], mail).deliver_later
       end
     when Photo
-      all_emails = event.subscriptions.map(&:user_email) + [event.user.email] - [options.user.email]
+      all_emails = options[0].subscriptions.map(&:user_email) + [options[0].user.email] - [options[1].user.email]
 
       all_emails.each do |mail|
-        EventMailer.photo(event, options, mail).deliver_now
+        EventMailer.photo(options[0], options[1], mail).deliver_later
       end
     when Subscription
-      EventMailer.subscription(event, options).deliver_now
+      EventMailer.subscription(options[0], options[1]).deliver_later
     end
   end
 end

@@ -40,14 +40,4 @@ class PhotosController < ApplicationController
   def photo_params
     params.fetch(:photo, {}).permit(:image, :image_cache)
   end
-
-  private
-
-  # def notify_subscribers_about_photo(event, photo)
-  #   all_emails = event.subscriptions.map(&:user_email) + [event.user.email] - [photo.user.email]
-  #
-  #   all_emails.each do |mail|
-  #     EventMailer.photo(event, photo, mail).deliver_later
-  #   end
-  # end
 end
