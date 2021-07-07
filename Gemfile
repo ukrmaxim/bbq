@@ -16,6 +16,7 @@ gem 'devise', '~> 4.7', '>= 4.7.3'
 gem 'rails-i18n', '~> 6.0.0' # For 6.0.0 or higher
 gem 'down', '~> 5.2', '>= 5.2.1'
 gem 'pundit', '~> 2.1'
+gem 'resque', '~> 2.0'
 
 group :development, :test do
   gem 'pry-rails'
@@ -25,6 +26,7 @@ group :development, :test do
   gem 'capistrano-passenger', '~> 0.2.1'
   gem 'capistrano-rbenv', '~> 2.2'
   gem 'capistrano-bundler', '~> 2.0', '>= 2.0.1'
+  gem 'capistrano-resque', '~> 0.2.3', require: false
   gem 'rspec-rails', '~> 5.0', '>= 5.0.1'
   gem 'rails-controller-testing', '~> 1.0', '>= 1.0.5'
   gem 'pundit-matchers', '~> 1.6'

@@ -40,3 +40,5 @@ set :keep_releases, 5
 # set :ssh_options, verify_host_key: :secure
 
 Rake::Task["deploy:assets:backup_manifest"].clear_actions
+
+after "deploy:restart", "resque:restart"
