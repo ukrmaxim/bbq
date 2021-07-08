@@ -9,7 +9,7 @@ set :repo_url, "git@github.com:ukrmaxim/bbq.git"
 set :branch, 'do_vps'
 
 # Default deploy_to directory is /var/www/my_app_name
-set :deploy_to, "/home/deploy/apps/bbq/current"
+set :deploy_to, "/home/deploy/apps/bbq"
 
 # Default value for :format is :airbrussh.
 # set :format, :airbrussh
