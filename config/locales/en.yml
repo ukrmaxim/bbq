@@ -107,6 +107,7 @@ en:
 
   sign_up: 'Sign up'
   sign_in: 'Sign in'
+  sign_in_with: 'Sign in with %{facebook}'
   sign_out: 'Sign out'
   log_in: 'Log in'
   profile: 'Profile'

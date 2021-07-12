@@ -12,11 +12,13 @@ gem 'carrierwave', '~> 2.2', '>= 2.2.1'
 gem 'fog-aws', '~> 3.10'
 gem 'mini_magick', '~> 4.11' # need sudo apt install imagemagick
 gem 'file_validators', '~> 3.0'
-gem 'devise', '~> 4.7', '>= 4.7.3'
+gem 'devise', '~> 4.8'
 gem 'rails-i18n', '~> 6.0.0' # For 6.0.0 or higher
 gem 'down', '~> 5.2', '>= 5.2.1'
 gem 'pundit', '~> 2.1'
 gem 'resque', '~> 2.0'
+gem 'omniauth-facebook', '~> 8.0'
+gem 'omniauth-rails_csrf_protection'
 
 group :development, :test do
   gem 'pry-rails'
