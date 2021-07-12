@@ -3,7 +3,7 @@ class User < ApplicationRecord
   USEREMAIL_REGEXP = /\A[\w.]+@[a-zа-я\d]+\.[a-zа-я]+\z/
 
   devise :database_authenticatable, :registerable, :recoverable,
-         :rememberable, :validatable, :omniauthable, omniauth_providers: %i[facebook]
+         :rememberable, :validatable, :omniauthable, omniauth_providers: %i[facebook github]
 
   has_many :events, dependent: :destroy
   has_many :comments, dependent: :destroy
