@@ -9,6 +9,8 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     auth_type "GitHub"
   end
 
+  private
+
   def auth_type(type)
     @user = User.from_omniauth(request.env["omniauth.auth"])
 
