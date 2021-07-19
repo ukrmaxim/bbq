@@ -157,21 +157,21 @@ ru:
       email: 'E-mail'
       author: 'Автор'
       event: 'Событие'
-      datetime: 'Состоится'
+      datetime: 'Дата'
       owner: 'Организатор'
     comment:
       subject: "Новый комментарий к событию: %{title}"
       title: 'Новый комментарий'
       author: 'Автор'
       event: 'Событие'
-      datetime: 'Состоится'
+      datetime: 'Дата'
       owner: 'Организатор'
     photo:
       subject: "Новое фото к событию: %{title}"
       title: 'Новое фото'
       author: 'Добавил'
       event: 'Событие'
-      datetime: 'Состоится'
+      datetime: 'Дата'
       owner: 'Организатор'
 
   pundit:

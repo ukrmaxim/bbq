@@ -15,8 +15,8 @@ class ApplicationController < ActionController::Base
   # Настройка для девайза — разрешаем обновлять профиль, но обрезаем
   # параметры, связанные со сменой пароля.
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:account_update, keys: [:password, :password_confirmation, :current_password])
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :email])
+    devise_parameter_sanitizer.permit(:account_update, keys: %i[password password_confirmation current_password])
+    devise_parameter_sanitizer.permit(:sign_up, keys: %i[name email])
   end
 
   # Вспомогательный метод, возвращает true, если текущий залогиненный юзер может править указанное событие
@@ -34,6 +34,6 @@ class ApplicationController < ActionController::Base
 
   def user_not_authorized
     flash[:alert] = t('pundit.not_authorized')
-    redirect_to(request.referrer || root_path)
+    redirect_to(request.referer || root_path)
   end
 end

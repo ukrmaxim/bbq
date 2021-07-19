@@ -1,4 +1,4 @@
-require "active_support/core_ext/integer/time"
+require 'active_support/core_ext/integer/time'
 
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
@@ -6,7 +6,7 @@ Rails.application.configure do
   config.active_job.queue_adapter = :resque
   config.active_job.queue_name_prefix = "telebot_#{Rails.env}"
 
-  config.hosts << "lvh.me"
+  config.hosts << 'lvh.me'
 
   # In the development environment your application's code is reloaded any time
   # it changes. This slows down response time but is perfect for development

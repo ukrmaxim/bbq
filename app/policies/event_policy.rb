@@ -1,5 +1,4 @@
 class EventPolicy < ApplicationPolicy
-
   def index?
     true
   end
@@ -34,7 +33,7 @@ class EventPolicy < ApplicationPolicy
     record.user == user
   end
 
-    class Scope < Scope
+  class Scope < Scope
     def resolve
       scope.all
     end

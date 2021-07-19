@@ -1,15 +1,15 @@
 # config valid for current version and patch releases of Capistrano
-lock "~> 3.16.0"
+lock '~> 3.16.0'
 
-set :application, "bbq"
-set :repo_url, "git@github.com:ukrmaxim/bbq.git"
+set :application, 'bbq'
+set :repo_url, 'git@github.com:ukrmaxim/bbq.git'
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 set :branch, 'do_vps'
 
 # Default deploy_to directory is /var/www/my_app_name
-set :deploy_to, "/home/deploy/apps/bbq"
+set :deploy_to, '/home/deploy/apps/bbq'
 
 # Default value for :format is :airbrussh.
 # set :format, :airbrussh
@@ -25,7 +25,8 @@ set :deploy_to, "/home/deploy/apps/bbq"
 append :linked_files, 'config/master.key', 'config/database.yml'
 
 # Default value for linked_dirs is []
-append :linked_dirs, 'log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', '.bundle', 'public/system', 'public/uploads'
+append :linked_dirs, 'log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', '.bundle', 'public/system',
+       'public/uploads'
 
 # Default value for default_env is {}
 # set :default_env, { path: "/opt/ruby/bin:$PATH" }
@@ -39,6 +40,6 @@ set :keep_releases, 5
 # Uncomment the following to require manually verifying the host key before first deploy.
 # set :ssh_options, verify_host_key: :secure
 
-Rake::Task["deploy:assets:backup_manifest"].clear_actions
+Rake::Task['deploy:assets:backup_manifest'].clear_actions
 
-after "deploy:restart", "resque:restart"
+after 'deploy:restart', 'resque:restart'

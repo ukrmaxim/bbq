@@ -3,6 +3,6 @@ FactoryBot.define do
     association :user
     title { 'Футбик' }
     address { 'Харьков' }
-    datetime { Time.now }
+    datetime { Time.current }
   end
 end

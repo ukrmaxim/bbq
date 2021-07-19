@@ -20,12 +20,11 @@ class EventMailer < ApplicationMailer
     @photo = photo
     @event = photo.event
 
-
-    if Rails.env.production?
-      attachments.inline['image.jpg'] = File.read(Down.download(photo.image.thumb))
-    else
-      attachments.inline['image.jpg'] = File.read("public#{photo.image.thumb}")
-    end
+    attachments.inline['image.jpg'] = if Rails.env.production?
+                                        File.read(Down.download(photo.image.thumb))
+                                      else
+                                        File.read("public#{photo.image.thumb}")
+                                      end
 
     mail to: email, subject: default_i18n_subject(title: @event.title)
   end
