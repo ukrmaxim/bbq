@@ -1,24 +1,46 @@
-# README
+# World of events
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A social network application with which users can create events, subscribe to them, leave comments on events,
+as well as add photos to them.
 
-Things you may want to cover:
+A social network application with which users can create events, subscribe to them, leave comments on events,
+as well as add photos to them.
+Access restriction to the event by pin code is available.
+To view the original size of the photo, they are displayed in the form of a gallery.
+The address of the event is displayed on the built-in map using Yandex.map
+Users receive information about updating events (added a comment, photo, or a new subscriber for the event) by email.
+Authorization via email, Facebook and Github is available in the application.
+In a production environment, Amazon S3 is used to store photos added to the event.
 
-* Ruby version
+## Ruby and Ruby on Rails version
 
-* System dependencies
+- Ruby 3.0.0
 
-* Configuration
+- Rails  6.1.3
 
-* Database creation
+## Deploy app
 
-* Database initialization
+Note: all commands must be run from the command line/terminal, from the directory, where you clone repository
 
-* How to run the test suite
+1. Download or clone repository, then run bundler
 
-* Services (job queues, cache servers, search engines, etc.)
+```ruby
+bundle exec install
+```
 
-* Deployment instructions
+2. To create a database, run
 
-* ...
+```ruby
+rails db:schema:load
+```
+
+3. Credentials setup
+
+
+## How to run app
+
+To start the Rails server, type
+
+```ruby
+rails s
+```
