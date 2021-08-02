@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   # Встроенный в девайз фильтр — посылает незалогиненного пользователя
   before_action :authenticate_user!, except: [:show]
-  before_action :set_user, only: %i[ show edit update ]
+  before_action :set_user, only: %i[show edit update]
 
   # GET /users/1
   def show
@@ -9,8 +9,7 @@ class UsersController < ApplicationController
   end
 
   # GET /users/1/edit
-  def edit
-  end
+  def edit; end
 
   # PATCH/PUT /users/1
   def update

@@ -1,13 +1,13 @@
 class SubscriptionsController < ApplicationController
-  before_action :set_event, only: %i[ create destroy ]
-  before_action :set_subscription, only: %i[ destroy ]
+  before_action :set_event, only: %i[create destroy]
+  before_action :set_subscription, only: %i[destroy]
 
   def create
     @new_subscription = @event.subscriptions.build(subscription_params)
     @new_subscription.user = current_user
 
     if @new_subscription.save
-      EventMailer.subscription(@event, @new_subscription).deliver_later
+      EventMailerJob.perform_later(@new_subscription)
 
       redirect_to @event, notice: t('controllers.subscriptions.created')
     else

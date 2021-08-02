@@ -57,6 +57,7 @@ en:
       created: 'You have created a new event'
       updated: 'You have updated the event'
       destroyed: 'You have deleted the event :('
+      wrong_pincode: 'Wrong PIN code'
     users:
       updated: 'You have updated your profile'
     comments:
@@ -101,8 +102,12 @@ en:
       datetime: 'Will take place'
       owner: 'Owner'
 
+  pundit:
+    not_authorized: "You are not authorized to perform this action."
+
   sign_up: 'Sign up'
   sign_in: 'Sign in'
+  sign_in_with: 'Sign in with %{facebook}'
   sign_out: 'Sign out'
   log_in: 'Log in'
   profile: 'Profile'

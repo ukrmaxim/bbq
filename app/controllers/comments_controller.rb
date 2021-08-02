@@ -1,13 +1,13 @@
 class CommentsController < ApplicationController
-  before_action :set_event, only: %i[ create destroy ]
-  before_action :set_comment, only: %i[ destroy ]
+  before_action :set_event, only: %i[create destroy]
+  before_action :set_comment, only: %i[destroy]
 
   def create
     @new_comment = @event.comments.build(comment_params)
     @new_comment.user = current_user
 
     if @new_comment.save
-      notify_subscribers_about_comment(@event, @new_comment)
+      EventMailerJob.perform_later(@new_comment)
 
       redirect_to @event, notice: t('controllers.comments.created')
     else
@@ -39,20 +39,5 @@ class CommentsController < ApplicationController
 
   def comment_params
     params.require(:comment).permit(:body, :user_name)
-  end
-
-  private
-
-  def notify_subscribers_about_comment(event, comment)
-    # собираем всех подписчиков и незареганных пользователей, подписавшихся на событие в массив мэйлов
-    if comment.user.present?
-      all_emails = event.subscriptions.map(&:user_email) + [event.user.email] - [comment.user.email]
-    else
-      all_emails = event.subscriptions.map(&:user_email) + [event.user.email]
-    end
-
-    all_emails.each do |mail|
-      EventMailer.comment(event, comment, mail).deliver_later
-    end
   end
 end
