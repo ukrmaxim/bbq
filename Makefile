@@ -1,14 +1,20 @@
+db:
+	rails db:migrate
+
+add:
+	git add .
+
+origin:
+	git push origin master
+
+heroku:
+	git push heroku master
+
 amend:
 	git commit --amend --no-edit
 
 force:
 	git push origin master -f
 
-master:
-	git push origin master
-
-db:
-	rails db:migrate
-
-heroku_force:
+h_force:
 	git push heroku master -f
