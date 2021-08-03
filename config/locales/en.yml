@@ -107,7 +107,7 @@ en:
 
   sign_up: 'Sign up'
   sign_in: 'Sign in'
-  sign_in_with: 'Sign in with %{facebook}'
+  sign_in_with: 'Sign in with %{omniauth_provider}'
   sign_out: 'Sign out'
   log_in: 'Log in'
   profile: 'Profile'

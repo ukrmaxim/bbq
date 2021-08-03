@@ -8,4 +8,7 @@ master:
 	git push origin master
 
 db:
-	rake db:migrate
+	rails db:migrate
+
+heroku_force:
+	git push heroku master -f

@@ -180,7 +180,7 @@ ru:
   # Перевод ссылок и кнопок
   sign_up: 'Регистрация'
   sign_in: 'Войти'
-  sign_in_with: 'Войти через %{facebook}'
+  sign_in_with: 'Войти через %{omniauth_provider}'
   sign_out: 'Выйти'
   log_in: 'Вход'
   profile: 'Мой профиль'
