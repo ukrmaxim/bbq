@@ -9,5 +9,5 @@ port        ENV['PORT']     || 3000
 environment ENV['RACK_ENV'] || 'development'
 
 on_worker_boot do
-  Resque.redis = ENV['<redis-uri>'] || 'redis://127.0.0.1:6379' if defined?(Resque)
+  Resque.redis = ENV['REDIS_URL'] || 'redis://127.0.0.1:6379' if defined?(Resque)
 end
