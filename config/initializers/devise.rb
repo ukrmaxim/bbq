@@ -271,11 +271,6 @@ Devise.setup do |config|
   # ==> OmniAuth
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
-  config.omniauth :facebook,
-                  Rails.application.credentials[Rails.env.to_sym][:facebook][:omniauth_id],
-                  Rails.application.credentials[Rails.env.to_sym][:facebook][:omniauth_secret],
-                  scope: 'email, public_profile'
-
   config.omniauth :github,
                   Rails.application.credentials[Rails.env.to_sym][:github][:omniauth_id],
                   Rails.application.credentials[Rails.env.to_sym][:github][:omniauth_secret]
