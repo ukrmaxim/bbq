@@ -1,3 +1,5 @@
+.PHONY: db
+
 db:
 	rails db:migrate
 
