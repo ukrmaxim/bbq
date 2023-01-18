@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-  # Встроенный в девайз фильтр — посылает незалогиненного пользователя
   before_action :authenticate_user!, except: [:show]
   before_action :set_user, only: %i[show edit update]
 
@@ -22,12 +21,10 @@ class UsersController < ApplicationController
 
   private
 
-  # Use callbacks to share common setup or constraints between actions.
   def set_user
     @user = current_user
   end
 
-  # Only allow a list of trusted parameters through.
   def user_params
     params.require(:user).permit(:name, :email, :avatar, :avatar_cache)
   end

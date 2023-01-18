@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 myMap.setZoom(15);
             },
             function (err) {
-                alert('Ошибка при определении местоположения');
+                alert('Location error');
             }
         );
 

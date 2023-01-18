@@ -13,7 +13,7 @@ class EventMailerJob < ApplicationJob
       all_emails.each do |mail|
         EventMailer.photo(record, mail).deliver_later
       end
-    when Subscription
+    else
       EventMailer.subscription(record).deliver_later
     end
   end

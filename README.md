@@ -16,11 +16,11 @@ In a production environment, `Amazon S3` is used to store photos added to the ev
 
 `PostgreSQL` is used as a powerful, open source object-relational database system.
 
-For the development of the frontend, used `bootstrap 4.6` and `webpacker 5`.
+For the development of the frontend, used `bootstrap 4.x` and `webpacker 5.x`.
 
 ## Ruby and Ruby on Rails version
 
-- Ruby 3.0.0
+- Ruby 3.1.2
 
 - Rails  6.1.3
 
