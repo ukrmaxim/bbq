@@ -18,7 +18,6 @@ gem 'psych', '< 4'
 gem 'puma', '~> 5.0'
 gem 'pundit', '~> 2.1'
 gem 'rails', '~> 6.1.3'
-gem 'rails-i18n', '~> 6.0.0' # For 6.0.0 or higher
 gem 'resque', '~> 2.0'
 gem 'webpacker', '~> 5.0'
 
